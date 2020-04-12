@@ -20,9 +20,10 @@ ui <- fluidPage(
     # ),
     # Application title
     h1(
-        "University of Chicago - Medically-Necessary, Time-Sensitive Procedures Calculator"
+        "Medically-Necessary, Time-Sensitive Procedures Calculator"
     ),
-    fluidRow(p(textOutput("ments_score"))),
+    h2("University of Chicago"),
+    h3(fluidRow(p(textOutput("ments_score")))),
     fluidRow(
         column(3,
                selectInput(
@@ -57,7 +58,7 @@ ui <- fluidPage(
                    c(
                        "Not Scored" = "6",
                        "1 Very Unlikely" = "1",
-                       "2<5%" = "2",
+                       "2 <5%" = "2",
                        "3 5-10%" = "3",
                        "4 10-25%" = "4",
                        "5 >25%" = "5"
@@ -69,11 +70,11 @@ ui <- fluidPage(
                    "Anticipated Blood Loss",
                    c(
                        "Not Scored" = "6",
-                       "<100 cc" = "1",
-                       "100-250cc" = "2",
-                       "251-500cc" = "3",
-                       "500-750cc" = "4",
-                       ">751cc" = "5"
+                       "1 <100 cc" = "1",
+                       "2 100-250cc" = "2",
+                       "3 251-500cc" = "3",
+                       "4 500-750cc" = "4",
+                       "5 >751cc" = "5"
                    )
                ))
         
@@ -85,11 +86,11 @@ ui <- fluidPage(
                    "Surgical Team Size",
                    c(
                        "Not Scored" = "6",
-                       "1" = "1",
-                       "2" = "2",
-                       "3" = "3",
-                       "4" = "4",
-                       ">4" = "5"
+                       "1 1" = "1",
+                       "2 2" = "2",
+                       "3 3" = "3",
+                       "4 4" = "4",
+                       "5 >4" = "5"
                    )
                )),
         column(3,
@@ -98,11 +99,11 @@ ui <- fluidPage(
                    "Intubation Probability",
                    c(
                        "Not Scored" = "6",
-                       "<1%" = "1",
-                       "1-5%" = "2",
-                       "6-10%" = "3",
-                       "11-25%" = "4",
-                       ">25%" = "5"
+                       "1 <1%" = "1",
+                       "2 1-5%" = "2",
+                       "3 6-10%" = "3",
+                       "4 11-25%" = "4",
+                       "5 >25%" = "5"
                    )
                )),
         column(3,
@@ -111,11 +112,11 @@ ui <- fluidPage(
                    "Surgical Site",
                    c(
                        "Not Scored" = "6",
-                       "None of the following" = "1",
-                       "Abdominopelvic MIS" = "2",
-                       "Abdominopelvic Open Surgery, Infraumbilical" = "3",
-                       "Abdominopelvic Open Surgery, Supraumbilical" = "4",
-                       "Open Head and Neck, Upper GI, Thoracic" = "5"
+                       "1 None of the following" = "1",
+                       "2 Abdominopelvic MIS" = "2",
+                       "3 Abdominopelvic Open Surgery, Infraumbilical" = "3",
+                       "4 Abdominopelvic Open Surgery, Supraumbilical" = "4",
+                       "5 Open Head and Neck, Upper GI, Thoracic" = "5"
                    )
                )),
         
@@ -127,11 +128,11 @@ ui <- fluidPage(
             "Effectiveness of Non-operative Treatment",
             c(
                 "Not Scored" = "6",
-                "None available" = "1",
-                "Available, <40% as effective as surgery" = "2",
-                "Available, 40-60% as effective as surgery" = "3",
-                "Available, 61-95% as effective as surgery" = "4",
-                "Available, equally effective as surgery" = "5"
+                "1 None available" = "1",
+                "2 Available, <40% as effective as surgery" = "2",
+                "3 Available, 40-60% as effective as surgery" = "3",
+                "4 Available, 61-95% as effective as surgery" = "4",
+                "5 Available, equally effective as surgery" = "5"
             )
         )
     ),
@@ -142,11 +143,11 @@ ui <- fluidPage(
             "Resource/Exposure Risk of Non-operative Treatment",
             c(
                 "Not Scored" = "6",
-                "Significantly worse/not applicable" = "1",
-                "Somewhat worse" = "2",
-                "Equivalent" = "3",
-                "Somewhat better" = "4",
-                "Significantly better" = "5"
+                "1 Significantly worse/not applicable" = "1",
+                "2 Somewhat worse" = "2",
+                "3 Equivalent" = "3",
+                "4 Somewhat better" = "4",
+                "5 Significantly better" = "5"
             )
         )
         
@@ -159,11 +160,11 @@ ui <- fluidPage(
                 "Impact of 2 week delay in Disease Outcome",
                 c(
                     "Not Scored" = "6",
-                    "Significantly worse" = "1",
-                    "Worse" = "2",
-                    "Moderately worse" = "3",
-                    "Slightly worse" = "4",
-                    "No worse" = "5"
+                    "1 Significantly worse" = "1",
+                    "2 Worse" = "2",
+                    "3 Moderately worse" = "3",
+                    "4 Slightly worse" = "4",
+                    "5 No worse" = "5"
                 )
             )
             
@@ -175,11 +176,11 @@ ui <- fluidPage(
                 "Impact of 2 week delay in Surgical Difficulty/Risk",
                 c(
                     "Not Scored" = "6",
-                    "Significantly worse" = "1",
-                    "Worse" = "2",
-                    "Moderately worse" = "3",
-                    "Slightly worse" = "4",
-                    "No worse" = "5"
+                    "1 Significantly worse" = "1",
+                    "2 Worse" = "2",
+                    "3 Moderately worse" = "3",
+                    "4 Slightly worse" = "4",
+                    "5 No worse" = "5"
                 )
             )
             
@@ -191,11 +192,11 @@ ui <- fluidPage(
                 "Impact of 6 week delay in Disease Outcome",
                 c(
                     "Not Scored" = "6",
-                    "Significantly worse" = "1",
-                    "Worse" = "2",
-                    "Moderately worse" = "3",
-                    "Slightly worse" = "4",
-                    "No worse" = "5"
+                    "1 Significantly worse" = "1",
+                    "2 Worse" = "2",
+                    "3 Moderately worse" = "3",
+                    "4 Slightly worse" = "4",
+                    "5 No worse" = "5"
                 )
             )
         ),
@@ -206,11 +207,11 @@ ui <- fluidPage(
                 "Impact of 6 week delay in Surgical Difficulty/Risk",
                 c(
                     "Not Scored" = "6",
-                    "Significantly worse" = "1",
-                    "Worse" = "2",
-                    "Moderately worse" = "3",
-                    "Slightly worse" = "4",
-                    "No worse" = "5"
+                    "1 Significantly worse" = "1",
+                    "2 Worse" = "2",
+                    "3 Moderately worse" = "3",
+                    "4 Slightly worse" = "4",
+                    "5 No worse" = "5"
                 )
             )
         )
@@ -222,11 +223,11 @@ ui <- fluidPage(
                    "Age",
                    c(
                        "Not Scored" = "6",
-                       "<20" = "1",
-                       "21-40" = "2",
-                       "41-50" = "3",
-                       "51-65" = "4",
-                       ">65" = "5"
+                       "1 <20" = "1",
+                       "2 21-40" = "2",
+                       "3 41-50" = "3",
+                       "4 51-65" = "4",
+                       "5 >65" = "5"
                    )
                )),
         column(3,
@@ -235,9 +236,9 @@ ui <- fluidPage(
                    "Lung Disease (Asthma, COPD, CF)",
                    c(
                        "Not Scored" = "6",
-                       "None" = "1",
-                       "Minimal (rare inhaler)" = "4",
-                       ">Minimal" = "5"
+                       "1 None" = "1",
+                       "4 Minimal (rare inhaler)" = "4",
+                       "5 >Minimal" = "5"
                    )
                )),
         column(3,
@@ -246,9 +247,9 @@ ui <- fluidPage(
                    "Obstructive Sleep Apnea",
                    c(
                        "Not Scored" = "6",
-                       "Not Present" = "1",
-                       "Mild/Moderate (no CPAP)" = "4",
-                       "On CPAP" = "5"
+                       "1 Not Present" = "1",
+                       "4 Mild/Moderate (no CPAP)" = "4",
+                       "5 On CPAP" = "5"
                    )
                )),
         column(3,
@@ -257,11 +258,11 @@ ui <- fluidPage(
                    "CV Disease (HTN, CHF, CAD)",
                    c(
                        "Not Scored" = "6",
-                       "None" = "1",
-                       "Minimal (no meds)" = "2",
-                       "Mild (<=1 Med)" = "3",
-                       "Moderate (2 meds)" = "4",
-                       "Severe (>= 3 meds)" = "5"
+                       "1 None" = "1",
+                       "2 Minimal (no meds)" = "2",
+                       "3 Mild (<=1 Med)" = "3",
+                       "4 Moderate (2 meds)" = "4",
+                       "5 Severe (>= 3 meds)" = "5"
                    )
                )),
     ),
@@ -272,10 +273,10 @@ ui <- fluidPage(
                    "Diabetes",
                    c(
                        "Not Scored" = "6",
-                       "None" = "1",
-                       "Mild (no meds)" = "3",
-                       "Moderate (PO meds only)" = "4",
-                       ">Moderate (insulin)" = "5"
+                       "1 None" = "1",
+                       "3 Mild (no meds)" = "3",
+                       "4 Moderate (PO meds only)" = "4",
+                       "5 >Moderate (insulin)" = "5"
                    )
                )),
         column(3,
@@ -284,9 +285,9 @@ ui <- fluidPage(
                    "Immunocompromised",
                    c(
                        "Not Scored" = "6",
-                       "No" = "1",
-                       "Moderate" = "4",
-                       "Severe" = "5"
+                       "1 No" = "1",
+                       "4 Moderate" = "4",
+                       "5 Severe" = "5"
                    )
                )),
         column(
@@ -296,8 +297,8 @@ ui <- fluidPage(
                 "Influenza-like Illness (fever, cough, sore throat, body aches, diarrhea",
                 c(
                     "Not Scored" = "6",
-                    "None (Asymptomatic)" = "1",
-                    "Yes" = "5"
+                    "1 None (Asymptomatic)" = "1",
+                    "5 Yes" = "5"
                 )
             )
         ),
@@ -307,11 +308,11 @@ ui <- fluidPage(
                    "COVID-19 Exposure",
                    c(
                        "Not Scored" = "6",
-                       "No" = "1",
-                       "Probarbly Not" = "2",
-                       "Possibly" = "3",
-                       "Probably" = "4",
-                       "Yes" = "5"
+                       "1 No" = "1",
+                       "2 Probarbly Not" = "2",
+                       "3 Possibly" = "3",
+                       "4 Probably" = "4",
+                       "5 Yes" = "5"
                    )
                )),
     ),
