@@ -34,8 +34,8 @@ ui <- fluidPage(
                        "1 <30 min" = "1",
                        "2 30-60 min" = "2",
                        "3 61-120 min" = "3",
-                       "4 121-179 min" = "4",
-                       "5 >= 180 min" = "5"
+                       "4 121-180 min" = "4",
+                       "5 >= 181 min" = "5"
                    )
                )),
         column(3,
@@ -48,7 +48,7 @@ ui <- fluidPage(
                        "2 23 hours" = "2",
                        "3 24-48 hours" = "3",
                        "4 <= 3 days" = "4",
-                       "5 >4 days" = "5"
+                       "5 >=4 days" = "5"
                    )
                )),
         column(3,
@@ -60,7 +60,7 @@ ui <- fluidPage(
                        "1 Very Unlikely" = "1",
                        "2 <5%" = "2",
                        "3 5-10%" = "3",
-                       "4 10-25%" = "4",
+                       "4 11-25%" = "4",
                        "5 >25%" = "5"
                    )
                )),
@@ -73,8 +73,8 @@ ui <- fluidPage(
                        "1 <100 cc" = "1",
                        "2 100-250cc" = "2",
                        "3 251-500cc" = "3",
-                       "4 500-750cc" = "4",
-                       "5 >751cc" = "5"
+                       "4 501-750cc" = "4",
+                       "5 >750cc" = "5"
                    )
                ))
         
@@ -140,7 +140,7 @@ ui <- fluidPage(
         6,
         selectInput(
             "vresourceuse",
-            "Resource/Exposure Risk of Non-operative Treatment",
+            "Resource Use/Exposure Risk of Non-operative Treatment",
             c(
                 "Not Scored" = "6",
                 "1 Significantly worse/not applicable" = "1",
@@ -164,7 +164,7 @@ ui <- fluidPage(
                     "2 Worse" = "2",
                     "3 Moderately worse" = "3",
                     "4 Slightly worse" = "4",
-                    "5 No worse" = "5"
+                    "5 Minimally worse" = "5"
                 )
             )
             
@@ -180,7 +180,7 @@ ui <- fluidPage(
                     "2 Worse" = "2",
                     "3 Moderately worse" = "3",
                     "4 Slightly worse" = "4",
-                    "5 No worse" = "5"
+                    "5 Minimally worse" = "5"
                 )
             )
             
@@ -196,7 +196,7 @@ ui <- fluidPage(
                     "2 Worse" = "2",
                     "3 Moderately worse" = "3",
                     "4 Slightly worse" = "4",
-                    "5 No worse" = "5"
+                    "5 Minimally worse" = "5"
                 )
             )
         ),
@@ -211,7 +211,7 @@ ui <- fluidPage(
                     "2 Worse" = "2",
                     "3 Moderately worse" = "3",
                     "4 Slightly worse" = "4",
-                    "5 No worse" = "5"
+                    "5 Minimally worse" = "5"
                 )
             )
         )
