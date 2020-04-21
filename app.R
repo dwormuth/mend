@@ -24,6 +24,7 @@ ui <- fluidPage(
     ),
     h2("University of Chicago"),
     h3(fluidRow(p(textOutput("ments_score")))),
+    hr(),
     fluidRow(
         column(3,
                selectInput(
@@ -86,11 +87,11 @@ ui <- fluidPage(
                    "Surgical Team Size",
                    c(
                        "Not Scored" = "6",
-                       "1 1" = "1",
-                       "2 2" = "2",
-                       "3 3" = "3",
-                       "4 4" = "4",
-                       "5 >4" = "5"
+                       "1 1 person" = "1",
+                       "2 2 people" = "2",
+                       "3 3 people" = "3",
+                       "4 4 people" = "4",
+                       "5 >4 people" = "5"
                    )
                )),
         column(3,
@@ -121,6 +122,7 @@ ui <- fluidPage(
                )),
         
     ),
+    hr(),
     fluidRow(column(
         6,
         selectInput(
@@ -216,6 +218,7 @@ ui <- fluidPage(
             )
         )
     ),
+    hr(), hr(),
     fluidRow(
         column(3,
                selectInput(
@@ -316,12 +319,30 @@ ui <- fluidPage(
                    )
                )),
     ),
+    hr(),
+    p("This WWW site  ", strong("DOES NOT STORE ANY"), " information. The following optional fields are presented as a convenience for those that want to print 
+      the calcualted results for whatever purpose."),
+    fluidRow(
+      column(3,
+             textInput("PtNameID","Optional Patient Name:","")),
+      column(3,
+             textInput("PtDOBID","Optional Patient Date of Birth:","")),
+      column(3,
+             textInput("PtSurgeonID","Optional Surgeon:","")),
+    ),
+    fluidRow(
+      column(6,
+             textInput("PtProccedureID","Optional Procedure:",width="100%")),
+      column(6,
+             textInput("PtRATID","Optional Rationale:",width="100%"))
+    ),
     p("This calculator implements the Medically-Necessary, Time-Sensitive Prodcedures: 
       A Scoring System described in the the JACS paper by Prachand VN, Milner R, Angelos P, Posner MC, Fung JJ, Agrawal N,
 Jeevanandam V, Matthews JB, Medically-Necessary, Time-Sensitive Procedures: A Scoring System
 to Ethically and Efficiently Manage Resource Scarcity and Provider Risk During the COVID-19
 Pandemic, Journal of the American College of Surgeons (2020)."),
-    a(href="https://doi.org/10.1016/j.jamcollsurg.2020.04.011","JACS DOI Link")
+    a(href="https://doi.org/10.1016/j.jamcollsurg.2020.04.011","JACS DOI Link"),
+    p("NB: Unscored fields have a weight of 6 for maximum penalty")
 )
 
 
@@ -330,28 +351,32 @@ Pandemic, Journal of the American College of Surgeons (2020)."),
 # Define server logic required to draw a histogram
 server <- function(input, output) {
     output$ments_score <- renderPrint({
-        mentsscore = strtoi(input$vortime) + strtoi(input$velos) +
-            strtoi(input$vpostopICU) +
-            strtoi(input$vabl) +
-            strtoi(input$vteamsizel) +
-            strtoi(input$vintube) +
-            strtoi(input$vsurgsite) +
-            strtoi(input$vnonopeffect) +
-            strtoi(input$vresourceuse) +
-            strtoi(input$v2wkdisease) +
-            strtoi(input$v2wkdifficulty) +
-            strtoi(input$v6wkdisease) +
-            strtoi(input$v6wkdifficulty) +
-            strtoi(input$vage) +
-            strtoi(input$vlung) +
-            strtoi(input$vosa) +
-            strtoi(input$vcv) +
-            strtoi(input$vdm) +
-            strtoi(input$vimmuno) +
-            strtoi(input$vILI) +
-            strtoi(input$vCOVID)
-        #print(input$vortime)
-        cat(sprintf("*** The MeNTS score is %i out of 105. ***", mentsscore))
+      procscore = strtoi(input$vortime) + strtoi(input$velos) +
+        strtoi(input$vpostopICU) +
+        strtoi(input$vabl) +
+        strtoi(input$vteamsizel) +
+        strtoi(input$vintube) +
+        strtoi(input$vsurgsite)
+      disscore = strtoi(input$vnonopeffect) +
+        strtoi(input$vresourceuse) +
+        strtoi(input$v2wkdisease) +
+        strtoi(input$v2wkdifficulty) +
+        strtoi(input$v6wkdisease) +
+        strtoi(input$v6wkdifficulty)
+      patscore = strtoi(input$vage) +
+        strtoi(input$vlung) +
+        strtoi(input$vosa) +
+        strtoi(input$vcv) +
+        strtoi(input$vdm) +
+        strtoi(input$vimmuno) +
+        strtoi(input$vILI) +
+        strtoi(input$vCOVID)
+      if (procscore > 35) procscore <- 35
+      if (disscore > 30) disscore <- 30
+      if (patscore > 40) patscore <- 40
+      mentsscore =  procscore + disscore + patscore
+    
+        cat(sprintf("*** The MeNTS score is %i (Procedure (%i) + Disease (%i) + Patient (%i)) out of 105. ***", mentsscore,procscore,disscore,procscore))
     })
 }
 
